@@ -1,12 +1,10 @@
 {
-    "name": "bufferext",
-    "description": "Extends the Buffer object with additional convenience functions",
-    "version": "0.1.0",
+    "name": "h1z1-buffer",
+    "description": "Extends the Buffer object with additional convenience functions for H1Z1",
+    "version": "1.0.0",
     "main": "bufferext.js",
     "repository" : {
         "type" : "git", 
-        "url" : "https://github.com/jseidelin/bufferext.git"
-    },
-    "dependencies": {
+        "url" : "https://github.com/QuentinGruber/h1z1-buffer"
     }
 }
