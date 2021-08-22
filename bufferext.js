@@ -117,6 +117,16 @@ if (!Buffer.prototype.writeBytes) {
 }
 
 
+if (!Buffer.prototype.readUInt64) {
+    Buffer.prototype.readUInt64 = function(value, offset, noAssert) {
+        return this.readUInt32(offset, noAssert) + this.readUInt32(offset+4, noAssert);
+    };
+}
+
+if (!Buffer.prototype.readInt64) {
+    Buffer.prototype.readInt64 = Buffer.prototype.readUInt64;
+}
+
 if (!Buffer.prototype.readUInt64String) {
     Buffer.prototype.readUInt64String = function(offset, noAssert) {
         var str = "0x";
@@ -144,6 +154,18 @@ if (!Buffer.prototype.writeInt64String) {
     Buffer.prototype.writeInt64String = Buffer.prototype.writeUInt64String;
 }
 
+
+
+if (!Buffer.prototype.writeUInt64) {
+    Buffer.prototype.writeUInt64String = function(value, offset, noAssert) {
+        this.writeUInt32BE(value >> 8, offset); //write the high order bits (shifted over)
+        this.writeUInt32BE(i & 0x00ff, offset + 4); //write the low order bits
+    };
+}
+
+if (!Buffer.prototype.writeInt64) {
+    Buffer.prototype.writeInt64 = Buffer.prototype.writeUInt64;
+}
 
 if (!Buffer.prototype.readFloat16LE) {
     Buffer.prototype.readFloat16LE = function(offset, noAssert) {
