@@ -9,7 +9,7 @@ if (!Buffer.prototype.readUInt24LE) {
 }
 
 if (!Buffer.prototype.writeUInt24LE) {
-    Buffer.prototype.readUInt24LE = function(value, offset, noAssert) {
+    Buffer.prototype.writeUInt24LE = function(value, offset, noAssert) {
         this.writeUInt8(value & 0xFF, offset, noAssert);
         this.writeUInt8((value >> 8) & 0xFF, offset + 1, noAssert); 
         this.writeUInt8((value >> 16) & 0xFF, offset + 2, noAssert);
@@ -100,7 +100,7 @@ if (!Buffer.prototype.writeBoolean) {
 
 if (!Buffer.prototype.readBytes) {
     Buffer.prototype.readBytes = function(offset, length) {
-        var dst = new Buffer(length);
+        var dst = Buffer.alloc(length);
         this.copy(dst, 0, offset, offset + length);
         return dst;
     };
