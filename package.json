@@ -5,6 +5,6 @@
     "main": "bufferext.js",
     "repository": {
         "type": "git",
-        "url": "https://github.com/H1emu/h1z1-buffer"
+        "url": "git+https://github.com/H1emu/h1z1-buffer.git"
     }
 }
